@@ -136,14 +136,14 @@ Open `http://localhost:3000`, log in, then go to **Security / 2FA** and enable t
 Request this URL from your portfolio (no login, no headers):
 
 ```
-GET https://DOMAIN/api/public/works
+GET https://mwa-psi.vercel.app/api/public/works
 ```
 
 Example (Next.js Server Component):
 
 ```jsx
 export default async function Projects() {
-  const res = await fetch('https://DOMAIN/api/public/works', { next: { revalidate: 60 } });
+  const res = await fetch('https://mwa-psi.vercel.app/api/public/works', { next: { revalidate: 60 } });
   const works = await res.json();
   return works.map(w => (
     <a key={w.id} href={w.link} target="_blank">
@@ -165,7 +165,7 @@ Response:
     "description": "One-page site for a local restaurant.",
     "date": "2026-09-12",
     "link": "https://example.com",
-    "image": "https://DOMAIN/api/public/works/66f.../image"
+    "image": "https://mwa-psi.vercel.app/api/public/works/66f.../image"
   }
 ]
 ```
